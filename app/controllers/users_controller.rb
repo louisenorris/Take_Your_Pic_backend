@@ -1,13 +1,13 @@
 class UsersController < ApplicationController
-
+        
     def index
         users = User.all
         render json: users
     end
 
     def show
-        user = User.find(params[:id])
-        # user = @current_user
+        # user = User.find(params[:id])
+        user = @current_user
         render ({json: {user: UserSerializer.new(user)}})
     end
 
@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 
     def create
         user = User.create(user_params)
+        # byebug
         if user.valid?
             render json: { user: UserSerializer.new(user), token: encode_token({user_id: user.id}) }, status: :created
         else

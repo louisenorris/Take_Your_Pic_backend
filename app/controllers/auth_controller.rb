@@ -8,7 +8,7 @@ class AuthController < ApplicationController
         end
     end
 
-    def validate_token 
+    def validate_token
         user = User.decode_token(get_token)
         if user 
             render json: { user: UserSerializer.new(user), token: encode_token(user_id: user.id) }, status: :accepted
