@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+
+    skip_before_action :set_current_user, only: [:create]
         
     def index
         users = User.all
@@ -6,8 +8,8 @@ class UsersController < ApplicationController
     end
 
     def show
-        # user = User.find(params[:id])
-        user = @current_user
+        user = User.find(params[:id])
+        # user = @current_user
         render ({json: {user: UserSerializer.new(user)}})
     end
 
