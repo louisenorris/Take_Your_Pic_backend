@@ -1,5 +1,6 @@
 class User < ApplicationRecord
     has_secure_password
+    has_many :polaroids, dependent: :destroy
 
     def token
         JWT.encode({ user_id: self.id }, ENV['RAILS_SECRET'])

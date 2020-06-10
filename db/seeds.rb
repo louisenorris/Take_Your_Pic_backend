@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Polaroid.destroy_all
+User.destroy_all
+
+louise = User.create(username: 'louise', email: 'l@lou.com', password: 'password')
+louisepic = Polaroid.create(user_id: louise.id)
+
+louisepic.photo.attach(
+    io: File.open('./public/photos/photo.jpg'),
+    filename: 'photo.jpg',
+    content_type: 'application/jpg'
+)
+
+puts "---------------------seeded-----------------------"
