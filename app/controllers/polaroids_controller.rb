@@ -11,13 +11,18 @@ class PolaroidsController < ApplicationController
     end
 
     def create
-        polaroid = Polaroid.create( user: @current_user )
-        # polaroid = Polaroid.create polaroid_params
-        # polaroid.user = @current_user
-        # polaroid.save
+        polaroid = Polaroid.create( user_id: polaroid_params[:user_id].to_i )
+        blob = ActiveStorage::Blob.create_and_upload!(
+            io: StringIO.new((Base64.decode64(polaroid_params[:photo]))),
+            filename: "polaroid.png",
+            content_type: "image/png",
+        )
+        # debugger
+        polaroid.photo.attach(blob)
+        photo = url_for(polaroid.photo)
+        # debugger
         if polaroid.valid?
             render json: {polaroid: PolaroidSerializer.new(polaroid)}, status: :created
-        else
             render json: { errors: polaroid.errors.full_messages }, status: :not_accepted
         end
     end
@@ -25,7 +30,6 @@ class PolaroidsController < ApplicationController
     private
 
     def polaroid_params
-        params.require(:polaroid).permit(:photo)
+        params.permit(:photo, :user_id, :file, :filename, :type)
     end
-
 end
