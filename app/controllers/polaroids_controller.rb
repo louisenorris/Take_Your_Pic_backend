@@ -17,12 +17,11 @@ class PolaroidsController < ApplicationController
             filename: "polaroid.png",
             content_type: "image/png",
         )
-        # debugger
         polaroid.photo.attach(blob)
         photo = url_for(polaroid.photo)
-        # debugger
         if polaroid.valid?
             render json: {polaroid: PolaroidSerializer.new(polaroid)}, status: :created
+        else
             render json: { errors: polaroid.errors.full_messages }, status: :not_accepted
         end
     end
