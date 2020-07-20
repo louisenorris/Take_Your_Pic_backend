@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users
   post '/login', to: 'auth#create' 
   get '/validate', to: 'auth#validate_token'
+  get '/find_polaroid/:id', to: 'polaroids#find_polaroid'
   get '/finduser/:id', to: 'users#find_user'
   get '/polaroids', to: 'polaroids#index'
   post '/polaroids', to: 'polaroids#create'
