@@ -1,5 +1,7 @@
 # README
 
+A photo sharing app for polaroid lovers. Take your pic and add it to the gallery for all to see! 
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
