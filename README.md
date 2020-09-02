@@ -4,6 +4,11 @@ A photo sharing app for polaroid lovers. Take your pic and add it to the gallery
 
 A user can signup or login, take a picture of themselves and watch it develop through a CSS animation. They can then decide whether to retake or save their digital polaroid to the gallery. 
 
+* Lazy Loading implemented to efficiently load only images in view. 
+* Utilized JSON Web Tokens and localStorage to store encrypted user information client-side, providing user authentication.
+* Developed a Rails API backend with endpoints for users and polaroids.
+* Image upload functionality applied using activestorage .
+
 ## Prerequisites
 
 Make sure you have installed:
