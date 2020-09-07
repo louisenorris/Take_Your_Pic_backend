@@ -1,6 +1,6 @@
 # Take Your Pic
 
-A photo sharing app for polaroid lovers. Take your pic and add it to the gallery for all to see! 
+A photo sharing app for polaroid lovers. Take your pic and add it to the gallery for all to see! Created using a React JavaScript frontend and a Ruby on Rails backend.
 
 A user can signup or login, take a picture of themselves and watch it develop through a CSS animation. They can then decide whether to retake or save their digital polaroid to the gallery. 
 
