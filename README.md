@@ -7,7 +7,7 @@ A user can signup or login, take a picture of themselves and watch it develop th
 * Lazy Loading implemented to efficiently load only images in view. 
 * Utilized JSON Web Tokens and localStorage to store encrypted user information client-side, providing user authentication.
 * Developed a Rails API backend with endpoints for users and polaroids.
-* Image upload functionality applied using activestorage .
+* Image upload functionality applied using activestorage.
 
 ## Prerequisites
 
